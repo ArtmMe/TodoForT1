@@ -1,3 +1,4 @@
+import { redirect } from '@tanstack/react-router'
 import type { Todo } from '../model/types'
 import { apiFetch } from '@/shared/api'
 
@@ -6,7 +7,7 @@ export async function fetchTodos() {
     return await apiFetch<Todo[]>('/todo', { method: 'GET' })
   }
   catch {
-    return []
+    throw redirect({ to: '/login' })
   }
 }
 

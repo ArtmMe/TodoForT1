@@ -3,11 +3,9 @@ import { Grid } from '@mantine/core'
 import { TaskItem } from './TaskItem'
 import { useTaskModalRouting } from '@/features/todo-modal'
 import { useFilters, applyTodoFilters } from '@/features/todo-filters'
-import { useAuthGuard } from '@/features/auth'
 import { useTodoStore } from '@/entities/todo'
 
 export const TaskList = () => {
-  useAuthGuard()
   useTaskModalRouting()
 
   const todos = useTodoStore(state => state.todos)
